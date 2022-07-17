@@ -1,0 +1,2372 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+$background2: #1F2738;
+$main-gradiant: linear-gradient(90deg, #E56F8C 0%, #E56F8C 0.01%, #7478ED 53.12%, #65BFDC 100%);
+$white: #FFF;
+$background: #111827;
+
+
+::selection {
+  background: #7478ED;
+  color: #FFF;
+}
+body {
+  background: $background;
+  font-family: 'Inter', sans-serif;
+}
+nav {
+  position: fixed;
+  width: 350px;
+  height: 100vh;
+  border-right: 1px solid rgba(255, 255, 255, 0.11);
+  padding-top: 60px;
+  background: $background;
+  z-index: 100;
+}
+.logoAlign {
+  display: flex;
+  justify-content: center;
+}
+.logoAlign2 {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 35px;
+
+  p {
+    font-weight: 700;
+    font-size: 30px;
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+  }
+
+  img {
+    width: 100px;
+  }
+}
+.navigationElements {
+  margin-top: 150px;
+}
+.navigationElement {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  padding-left: 45px;
+  transition: background 2s;
+  cursor: pointer;
+  margin-bottom: 10px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: $main-gradiant;
+    z-index: -1;
+    transition: opacity 0.4s linear;
+    opacity: 0;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  i {
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    font-size: 35px;
+    transition: color 0.5s;
+  }
+
+  p {
+    margin-left: 40px;
+    font-weight: 700;
+    font-size: 25px;
+    color: $white;
+  }
+
+  &:hover {
+    i {
+      color: white;
+    }
+  }
+}
+.loginButtonAlign {
+  padding: 0px 40px;
+  margin-top: 125px;
+  border: none;
+  outline: none;
+  background: none;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    background: $background;
+    cursor: pointer;
+    text-decoration: none;
+
+    button {
+      background: $main-gradiant;
+      background-clip: text;
+      border: none;
+      font-weight: 700;
+      font-size: 23px;
+      color: transparent;
+      z-index: 100;
+      transition: color 0.5s;
+      cursor: pointer;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: $main-gradiant;
+      z-index: -1;
+      transition: opacity 0.4s linear;
+      opacity: 0;
+      z-index: 10;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    &:hover {
+      button {
+        color: #FFF;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: -2px;
+      border-radius: inherit;
+      background-image: $main-gradiant;
+    }
+
+  }
+}
+main {
+  margin-left: 350px;
+  padding: 52px;
+}
+.loginButtonAlignMain {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 0px;
+  padding: 0px;
+
+  a {
+    width: 350px;
+  }
+}
+.profileAlign {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.profileModulePlaceholderContainer {
+  height: 75px;
+}
+.profileRing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 100px;
+  background: $background;
+  width: 75px;
+  height: 75px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -4px;
+    border-radius: inherit;
+    background-image: $main-gradiant;
+  }
+
+  img {
+    width: 65px;
+    height: 65px;
+    border-radius: inherit;
+    transition: filter 0.5s !important;
+    cursor: pointer;
+    object-fit: cover;
+
+    &:hover {
+      filter: brightness(0.75)
+    }
+
+    &:hover + .profileDropdownAlign {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+.profileDropdownAlign {
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  transition: visibility 0.5s, opacity 0.5s;
+
+  &:hover {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.profileDropdown {
+  position: relative;
+  width: 250px;
+  background: $background2;
+  border-radius: 15px;
+  margin-top: 25px;
+  border: 1px solid #000;
+
+  &::before {
+    position: absolute;
+    right: 20px;
+    top: -10px;
+    content: "";
+    width: 35px;
+    height: 25px;
+    background: $background2;
+    clip-path: polygon(50% 1%, 0% 100%, 100% 100%);
+    z-index: -1;
+  }
+}
+.profileDropdownOverflowControl {
+  overflow: hidden;
+  border-radius: 15px;
+  height: 100%;
+}
+.profileDropdownElement {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  width: 100%;
+  transition: background 0.5s;
+  cursor: pointer;
+  color: $white;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+
+  &:nth-child(3) {
+    color: rgb(197, 75, 75);
+    border-bottom: none;
+    border: none;
+    background: none;
+  }
+  
+  &:hover {
+    background: #1a202e;
+  }
+
+  i {
+    margin-left: 35px;
+    margin-right: 15px;
+  }
+  p {
+    font-weight: 700;
+  }
+}
+.challengesHeaderAlign {
+  display: flex;
+  justify-content: center;
+
+  h1 {
+    font-weight: 700;
+    font-size: 65px;
+    background: $main-gradiant;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 80px;
+  }
+}
+.challenges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 125px;
+}
+.challengeCard {
+  width: 375px;
+  height: max-content;
+  background: $background2;
+  border-radius: 25px;
+  overflow: hidden;
+  border-bottom: 16px solid #d46363;
+  margin-bottom: 200px;
+
+  img {
+    width: 100%;
+    height: 250px;
+    transition: transform 1s;
+    cursor: pointer;
+    object-fit: cover;
+
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
+}
+.challengeCardImageAlign {
+  overflow: hidden;
+}
+.challengeCardInfo {
+  padding: 30px;
+  padding-bottom: 15px;
+}
+.challengeCardInfoHeader {
+  font-weight: 700;
+  font-size: 30px;
+  color: $white;
+}
+.challengeCardInfoDescription {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  color: #505050;
+  margin-top: 30px;
+}
+.challengeCardInfoDifficulty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #d46363;
+  border-radius: 5px;
+  width: max-content;
+  width: 100px;
+  height: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #d46363;
+  margin-top: 35px;
+}
+.challengeInformation {
+  padding-left: 75px;
+  padding-top: 25px;
+}
+.challengeImage {
+  width: 600px;
+  height: 550px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+.challengeInfoWithoutRequirements {
+  display: flex;
+  gap: 75px;
+}
+.challengeDifficulty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: 2px solid;
+  font-weight: 700;
+  font-size: 20px;
+}
+.challengeInfo {
+  h1 {
+    margin-top: 35px;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 0.05em;
+    color: #E9E9E9;
+  }
+  p {
+    margin-top: 50px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #686868;
+    max-width: 500px;
+  }
+}
+.challengeSubmit {
+  @extend .loginButtonAlign;
+  padding: 0px;
+  margin-top: 100px;
+  width: 400px;
+}
+.requirements {
+  h2 {
+    background: $main-gradiant;
+    color: transparent;
+    background-clip: text;
+    margin-top: 100px;
+    font-weight: 700;
+    font-size: 50px;
+  }
+  ul {
+    list-style: inside;
+    margin-top: 50px;
+    padding-left: 50px;
+
+    li {
+      color: #E9E9E9;
+      font-weight: 700;
+      font-size: 25px;
+      margin-bottom: 25px;
+    }
+  }
+}
+.submitChallenge {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  h1 {
+    background: $main-gradiant;
+    color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 65px;
+    width: max-content;
+  }
+}
+.submitChallengeForm {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 125px;
+  gap: 75px;
+
+  input[type="url"] {
+    width: 100%;
+    height: 70px;
+    border: 2px solid;
+    border-image: $main-gradiant 0.5;
+    outline: 0px;
+    background: transparent;
+    font-size: 25px;
+    text-indent: 25px;
+    background: $main-gradiant;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    caret-color: #E56F8C;
+
+    &::placeholder {
+      background: $main-gradiant;
+      opacity: 0.5;
+      -webkit-background-clip: text;
+              background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+.submitChallengeFormThumbnailAlign {
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border: 2px solid;
+    border-image: $main-gradiant 1;
+    cursor: pointer;
+    
+    p {
+      background: $main-gradiant;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+      font-size: 25px;
+      opacity: 0.5;
+    }
+
+    input {
+      display: none;
+    }
+  }
+}
+.solutionPreviewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.submitChallenegButton {
+  @extend .loginButtonAlign;
+  width: 500px;
+  margin-top: 50px;
+  a {
+    div {
+      @extend button;
+    }
+  }
+}
+.solutionsMain {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  h1:not(.loginRequiredModal h1) {
+    margin-top: 25px;
+    font-weight: 700;
+    font-size: 65px;
+    background: $main-gradiant;
+    color: transparent;
+    background-clip: text;
+  }
+}
+.solutionCard {
+  width: 375px;
+  height: max-content;
+  z-index: 1;
+  background: $background2;
+  border-radius: 25px;
+  margin-bottom: 100px;
+  overflow: hidden;
+}
+.allSolutions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 100px;
+}
+.solutionCard img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 1s;
+  background: $background;
+  background: $background2;
+
+  &:hover:not(.solutionCardPersonalInfoImage img) {
+    transform: scale(1.25);
+  }
+}
+.solutionCardImageEffect {
+  width: max-content;
+  overflow: hidden;
+  width: 100%;
+  height: 250px;
+}
+.solutionCardInfo {
+  padding: 30px;
+}
+.solutionCardHeader {
+  font-weight: 700;
+  font-size: 30px;
+  color: $white;
+}
+.solutionCardPersonalInfo {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+.solutionCardPersonalInfoImage {
+  @extend .profileRing;
+  background: $background2;
+  width: 65px;
+  height: 65px;
+
+  img {
+    width: 55px;
+    height: 55px;
+  }
+}
+.solutionCardPersonalInfoName {
+  margin-left: 20px;
+}
+.solutionCardProfileInfo {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 20px;
+}
+.solutionCardProfileName {
+  color: #CACACA;
+}
+.solutionCardProfileDetailSeperation {
+  color: #757575;
+  margin: 0px 5px;
+}
+.solutionCardProfilePoints {
+  background: $main-gradiant;
+  color: transparent;
+  background-clip: text;
+}
+.solutionCardDate {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #737373;
+}
+.solutionCardLikes {
+  display: flex;
+  align-items: center;
+  background: $main-gradiant;
+  color: transparent;
+  background-clip: text;
+  width: max-content;
+  margin-top: 40px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  i {
+    font-size: 35px;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 22px;
+    margin-left: 10px;
+  }
+}
+.specificSolutionMainAlign {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.specificSolutionMain {
+  width: 100%;
+  max-width: 825px;
+}
+.specificSolutionAccountDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.specificSolutionLikesAlign {
+  display: flex;
+  border: none;
+  cursor: pointer;
+}
+.specificSolutionLikesAlign {
+  @extend .solutionCardLikes;
+}
+.specificSolutionModificationsAlign {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 25px;
+
+  div {
+    &:hover {
+      background: $background;
+    }
+  }
+}
+.specificSolutionThumbnail {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 25px;
+  margin-top: 50px;
+  background: $background2;
+}
+.specificSolutionButtonsAlign {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+.specificSolutionButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: 735px;
+  gap: 90px;
+}
+.specificSolutionButtonSite {
+  @extend .loginButtonAlign;
+  margin: 0px;
+  padding: 0px;
+}
+.specificSolutionButtonGithub {
+  position: relative;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  transition: background 0.5s;
+  cursor: pointer;
+  text-decoration: none;
+
+  button, %discussion-button {
+    color: #FFF;
+    font-weight: 700;
+    font-size: 23px;
+    border: none;
+    outline: none;
+    background: transparent;
+    transition: background 0.5s, color 0.5s;
+    cursor: pointer;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -2px;
+    border-radius: inherit;
+    background-image: $main-gradiant;
+  }
+
+  &:hover {
+    background: $background;
+
+    button {
+      background: $main-gradiant;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+}
+.specificSolutionDiscussionSeperationAlign {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.specificSolutionDiscussion {
+  margin-top: 165px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 50px;
+    color: $white;
+    margin-top: 45px;
+  }
+}
+.specificSolutionSeperation {
+  position: absolute;
+  border-top: 1px solid #ffffff25;
+  width: 100%;
+  max-width: 1000px;
+}
+.specificSolutionDiscussionForm {
+  display: grid;
+  margin-top: 80px;
+  gap: 50px;
+  margin-bottom: 150px;
+
+  textarea {
+    width: 100%;
+    min-height: 325px;
+    max-height: 425px;
+    resize: vertical;
+    border: 2px solid;
+    border-image: $main-gradiant 1;
+    outline: 0px;
+    padding: 25px;
+    font-weight: 700;
+    font-size: 22px;
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+    caret-color: #E56F8C;
+  
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.63);
+    }
+  }
+
+  button {
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: background 0.5s;
+    cursor: pointer;
+    text-decoration: none;
+    background: transparent;
+    width: 250px;
+    height: 60px;
+    justify-self: flex-end;
+    border: none;
+
+    p {
+      color: #FFF;
+      font-weight: 700;
+      font-size: 23px;
+      border: none;
+      outline: none;
+      background: transparent;
+      transition: background 0.5s, color 0.5s;
+      cursor: pointer;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: -2px;
+      border-radius: inherit;
+      background-image: $main-gradiant;
+    }
+
+    &:hover {
+      background: $background;
+
+      p {
+        background: $main-gradiant;
+        background-clip: text;
+        color: transparent;
+      }
+    }
+  }
+}
+.commentCard {
+  width: 100%;
+  background: $background2;
+  border-radius: 25px;
+  padding: 35px;
+  margin-bottom: 75px;
+
+  .solutionCardPersonalInfo {
+    margin: 0px;
+    z-index: 5;
+  }
+}
+.commentCardBody {
+  margin-top: 40px;
+  margin-left: 84px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: $white;
+}
+.commentModification {
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-self: flex-start;
+}
+.commentModificationCard {
+  @extend .specificSolutionButtonGithub;
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    background: $background2;
+  }
+
+  i {
+    @extend .specificSolutionButtonGithub, button;
+    font-size: 20px;
+    font-weight: initial;
+  }
+}
+.commentCardEditSubmitAlign {
+  display: flex;
+  gap: 50px;
+
+  button:nth-child(1) {
+    width: 60px;
+  }
+}
+.commentCardEditBodyAlign {
+  display: grid;
+  gap: 50px;
+  margin-top: 40px;
+  margin-left: 84px;
+  margin-bottom: 0px;
+
+  @extend .specificSolutionDiscussionForm, button;
+
+  button:hover {
+    background: $background2;
+  }
+}
+.commentCardEditBody {
+  background: transparent;
+  width: 100%;
+  resize: vertical;
+  min-height: 200px;
+  max-height: 300px;
+  outline: 0px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: $white;
+  border: 2px solid;
+  border-image: $main-gradiant 1;
+  padding: 25px;
+}
+.commentCardEditSubmitAlign {
+  z-index: 5;
+  justify-self: end;
+}
+.resourcesMain {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  h1 {
+    font-weight: 700;
+    font-size: 65px;
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+    width: max-content;
+    margin-top: 25px;
+  }
+}
+.resourceCardsAlign {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 125px;
+  width: 100%;
+}
+.resoureCard {
+  width: 375px;
+  background: $background2;
+  border-radius: 25px;
+  overflow: hidden;
+  margin-bottom: 100px;
+}
+.resourceCardImageEffect {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 1s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
+}
+.resourceCardInformation {
+  padding: 30px;
+}
+.resourceCardInformationHeader {
+  font-weight: 700;
+  font-size: 25px;
+  color: $white;
+}
+.resourceCardInformationSkills {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 15px;
+  margin-top: 25px;
+}
+.resourceCardInformationSkill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid #6CBF58;
+  font-weight: 700;
+  font-size: 14px;
+  color: #6CBF58;
+}
+.resourceCardInformationDescription {
+  margin-top: 35px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  color: #686868;
+}
+.profileMainAlign {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 35px;
+}
+.profileMain {
+  width: 100%;
+  max-width: 1100px;
+}
+.profileMainCard {
+  display: flex;
+  gap: 60px;
+  width: 100%;
+  padding: 40px;
+  background: $background2;
+  border-radius: 25px;
+  min-height: 400px;
+}
+.profileMainCardAvatarAlign {
+  z-index: 5;
+}
+.profileMainCardAvatar {
+  position: relative;
+  background: $background2;
+  border-radius: 25px;
+  width: 320px;
+  height: 320px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -8px;
+    border-radius: inherit;
+    background: $main-gradiant;
+  }
+}
+.profileMainCardAvatarOverflowControl {
+  overflow: hidden;
+  border-radius: 25px;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s;
+    cursor: pointer;
+    transform: scale(1.01);
+
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
+}
+.profileMainCardInformation {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  z-index: 4;
+}
+.profileCardInfoHeaderPoints {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    font-weight: 700;
+    font-size: 50px;
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 30px;
+    color: $white;
+    margin-left: 15px;
+    white-space: nowrap;
+  }
+}
+.profileCardInfoLocation {
+  font-weight: 700;
+  font-size: 20px;
+  color: #6B6B6B;
+  margin-top: 10px;
+}
+.profileCardInfoBio {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #555555;
+  margin-top: 35px;
+}
+.profileCardInfoSocials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  float: bottom;
+  justify-self: flex-end;
+  margin-top: 75px;
+}
+.profileCardInfoSocial {
+  @extend .challengeSubmit;
+  width: 60px;
+  height: 60px;
+  margin-top: 0px;
+
+  a {
+      background: $background2;
+  }
+}
+.profileCardInfoSocialsAlign {
+  display: flex;
+  height: 100%;
+  align-items: flex-end;
+}
+.profileChallengeButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 110px;
+  margin-top: 150px;
+}
+.profileChallengeInProgress {
+  @extend .specificSolutionButtonSite;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  height: 75px;
+
+  a {
+    height: 75px;
+  }
+}
+.profileChallengeCompleted {
+  @extend .specificSolutionButtonGithub;
+  background: none;
+  border: none;
+}
+.profileSolutionsAlign {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 150px;
+}
+.profileCommentsAlign {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  max-width: 825px;
+  margin-top: 150px;
+}
+.settingsMainAlign {
+  display: flex;
+  justify-content: center;
+}
+.settingsMain {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  background: $background2;
+  border-radius: 15px;
+  margin-top: 25px;
+  padding: 50px 65px;
+}
+.settingsProfileAlign {
+  @extend .profileAlign;
+  justify-content: center;
+  z-index: 5;
+}
+.settingsImageErrorMessage {
+  display: flex;
+  align-items: center;
+  color: rgb(252, 82, 53);
+  margin-top: 25px;
+
+  i {
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+}
+.settingsProfileRing {
+  @extend .profileRing;
+  width: 300px;
+  height: 300px;
+  border-radius: 1000px;
+  background: $background2;
+
+  &::after {
+    margin: -10px;
+  }
+
+  label {
+    img {
+      width: 275px;
+      height: 275px;
+      border-radius: 1000px;
+      background: $background;
+
+      &:hover + p {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    input {
+      display: none;
+    }
+    p {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.5s, visibility 0.5s;
+      color: transparent;
+      font-weight: 700;
+      background: $main-gradiant;
+      background-clip: text;
+      border: 2px solid;
+      border-image: $main-gradiant 1;
+      padding: 10px;
+      pointer-events: none;
+
+      &:hover ~ img {
+        filter: brightness(0.75);
+      }
+    }
+  }
+}
+.settingsProfileButton {
+  @extend .profileChallengeInProgress;
+  background: $background2;
+
+  p {
+    @extend .profileChallengeInProgress, a;
+
+    span {
+      @extend .profileChallengeInProgress, button;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 275px;
+      background: $main-gradiant;
+      background-clip: text;
+    }
+  }
+}
+.settingProfileButtonLayerAlign {
+  z-index: 5;
+  margin-top: 60px;
+}
+.settingsAll {
+  margin-top: 90px;
+  width: 100%;
+  z-index: 5;
+}
+.setting {
+  margin-bottom: 50px;
+
+  p {
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+    width: max-content;
+    font-weight: 700;
+    font-size: 28px;
+    opacity: 0.5;
+  }
+
+  input {
+    margin-top: 20px;
+    width: 100%;
+    border: 2px solid;
+    border-image: $main-gradiant 1;
+    background: none;
+    outline: none;
+    height: 65px;
+    text-indent: 25px;
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+    font-size: 23px;
+    font-weight: 700;
+    caret-color: #E56F8C;
+
+    &::placeholder {
+      background: $main-gradiant;
+      background-clip: text;
+      color: transparent;
+      opacity: 0.3;
+    }
+  }
+
+  textarea {
+    margin-top: 20px;
+    width: 100%;
+    border: 2px solid;
+    border-image: $main-gradiant 1;
+    background: none;
+    outline: none;
+    height: 65px;
+    padding: 25px;
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+    font-size: 23px;
+    font-weight: 700;
+    resize: vertical;
+    min-height: 300px;
+    max-height: 400px;
+    caret-color: #E56F8C;
+  }
+}
+.settingsAllSocialsHeader {
+  margin-top: 115px;
+  font-weight: 700;
+  font-size: 40px;
+  color: $white;
+  margin-bottom: 60px;
+}
+.updateSettingsButton {
+  @extend .profileChallengeCompleted;
+  width: 330px;
+  height: 75px;
+  margin-top: 100px;
+
+  &:hover {
+    background: $background2;
+  }
+
+  p {
+    @extend .profileChallengeCompleted, button;
+  }
+}
+.loginRequiredModal {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 250px;
+  background: #1F2738;
+  box-shadow: 0 0 0 1000px rgba(0,0,0,.6);
+  box-shadow: 0 0 0 100vmax rgba(0,0,0,.6);
+  z-index: 200;
+  margin-left: 175px;
+  border-radius: 25px;
+  padding: 30px;
+  pointer-events: auto;
+
+  h1 {
+    font-weight: 700;
+    font-size: 35px;
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+  }
+
+  a {
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 50px;
+    border: 2px solid;
+    border-image: $main-gradiant 1;
+    cursor: pointer;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: $main-gradiant;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    p {
+      background: $main-gradiant;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 35px;
+      transition: color 0.5s;
+    }
+
+    &:hover {
+      p {
+        color: $white;
+      }
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+    i {
+      color: $white;
+      font-size: 35px;
+      cursor: pointer;
+    }
+  }
+}
+
+.loginRequiredDescription {
+  font-weight: 400;
+  font-size: 18px;
+  color: #3A3A3A;
+  max-width: 400px;
+  text-align: center;
+  margin-top: 45px;
+}
+.submitChallengeErrorAlign {
+  display: flex;
+  width: 100%;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 100px;
+
+  h1 {
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+    font-size: 75px;
+    font-weight: 700;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+    border: 2px solid;
+    border-image: $main-gradiant 1;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 50px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: $main-gradiant;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    p {
+      background: $main-gradiant;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 35px;
+      transition: color 0.5s;
+    }
+
+    &:hover {
+      p {
+        color: $white;
+      }
+    }
+  }
+}
+.submitChallengeErrorDescription {
+  font-size: 25px;
+  color: #3A3A3A;
+  text-align: center;
+  max-width: 600px;
+  margin-top: 100px;
+}
+.commentCardChallenge {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #4f4f4f;
+  padding-bottom: 35px;
+}
+.commentCardChallengeThumbnail {
+  border-radius: 15px;
+  width: 225px;
+  height: 135px;
+  object-fit: cover;
+  background: $background;
+}
+.commentCardChallengeInfo {
+  display: flex;
+  gap: 30px;
+}
+.commentCardChallengeInfoInfo {
+  align-self: center;
+}
+.commentCardChallengeInfoHeader {
+  font-weight: 700;
+  font-size: 30px;
+  color: $white;
+  max-width: 200px;
+}
+.commentCardChallengeDifficulty {
+  @extend .challengeCardInfoDifficulty;
+  margin-top: 15px;
+}
+.commentCardChallengeSeeMoreAlign {
+  align-self: center;
+}
+.commentCardChallengeSeeMoreTextAlign {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: $main-gradiant;
+  background-clip: text;
+  color: transparent;
+  cursor: pointer;
+
+  p {
+    font-weight: 700;
+    font-size: 25px;
+  }
+
+  i {
+    font-weight: 900;
+    font-size: 35px;
+    margin-right: 10px;
+    transition: margin 0.5s;
+  }
+
+  &:hover {
+    i {
+      margin-right: 0px;
+      margin-left: 10px;
+    }
+  }
+}
+.leaderboardMainAlign {
+  display: flex;
+  justify-content: center;
+}
+.leaderboardMain {
+  width: 100%;
+  max-width: 1025px;
+  margin-top: 35px;
+}
+.leaderboardFilterAndHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 45px;
+    color: $white;
+  }
+}
+.leaderboardFilter {
+  position: relative;
+  width: 180px;
+  height: 60px;
+  border: 2px solid;
+  border-image: $main-gradiant 1;
+  background: $main-gradiant;
+  background-clip: text;
+  color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    .leaderboardFilterDropdown {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+.leaderboardFilterInfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+  height: 100%;
+  align-items: center;
+
+  p {
+    font-weight: 700;
+    font-size: 22px;
+  }
+
+  i {
+    font-weight: 900;
+    font-size: 30px;
+  }
+} 
+.leaderboardFilterDropdown {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  cursor: auto;
+  z-index: 6;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+.leaderboardFilterDropdownMain {
+  margin-top: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #000;
+}
+.leaderboardFilterDropdownElement {
+  position: relative;
+  display: flex;
+  background: $main-gradiant;
+  align-items: center;
+  height: 65px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFF;
+  transition: background 0.5s;
+
+  p {
+    z-index: 10;
+    margin-left: 25px;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #3b3b3b;
+  }
+
+  &:hover::after {
+    opacity: 0;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $background2;
+    transition: opacity 0.5s;
+  }
+}
+.leaderboard {
+  background: $background2;
+  border-radius: 25px 25px 0px 0px;
+}
+.leaderboardSlot {
+  padding: 0px 67.5px 0px 50px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgb(87, 87, 87);
+  }
+}
+.leaderboardSlotAlign {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 100%;
+}
+.leaderboardSlotInfo {
+  display: flex;
+  align-items: center;
+  z-index: 5;
+  gap: 100px;
+  height: 100%;
+  width: 100%;
+  flex: none;
+}
+.leaderboardSlotPlacement {
+  display: flex;
+  align-items: center;
+
+  i {
+    font-weight: 900;
+    font-size: 40px;
+    color: #F7E868;
+    margin-right: 10px;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 25px;
+    color: #F7E868;
+  }
+}
+.leaderboardSlotProfileInfo {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  margin-right: 20px;
+}
+.leaderboardSlotProfileDecorationalCircle {
+  @extend .profileRing;
+  background: $background2;
+  width: 65px;
+  height: 65px;
+  margin-left: 5px;
+
+  img {
+    background: $background;
+  }
+}
+.leaderboardSlotProfileHeader {
+  font-weight: 700;
+  font-size: 22px;
+  color: $white;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.leaderboardSlotProfileInfo2 {
+  align-self: center;
+}
+.leaderboardSlotProfilePoints {
+  font-weight: 500;
+  font-size: 18px;
+  background: $main-gradiant;
+  background-clip: text;
+  color: transparent;
+  width: max-content;
+  margin-top: 5px;
+}
+.leaderboardSlotProfileLink {
+
+  i {
+    font-weight: 700;
+    font-size: 35px;
+    margin-right: 10px;
+    transition: margin 0.5s;
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      margin-right: 0px;
+    }
+  }
+}
+.homeAlign {
+  display: flex;
+  justify-content: center;
+}
+.homeWelcome {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px 20px;
+  background: $background2;
+  border-radius: 25px;
+  margin-top: 30px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 50px;
+    background: $main-gradiant;
+    background-clip: text;
+    color: transparent;
+  }
+}
+.homeWelcomeDescription {
+  margin-top: 35px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 35px;
+  color: #696969;
+  max-width: 800px;
+}
+.loginButton {
+  @extend .loginButtonAlign;
+  width: 300px;
+  height: 60px;
+  margin-top: 75px;
+
+  a {
+    background: $background2;
+  }
+}
+.homeLoginButtonAlign {
+  z-index: 5;
+}
+.homeWorkingAlign {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 150px;
+
+  h2 {
+    font-weight: 700;
+    font-size: 50px;
+    color: $white;
+  }
+}
+.homeWorkingsMain {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 90px;
+  width: 100%;
+  max-width: 1200px;
+}
+@mixin workingBackground($color) {
+  background: $color;
+  box-shadow: 0px 0px 10px 5px $color;
+}
+.homeWorking {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+  width: 350px;
+  height: 350px;
+  border-radius: 25px;
+  
+  &:nth-child(1) {
+    @include workingBackground(#E56F8C);
+  }
+  &:nth-child(2) {
+    @include workingBackground(#7478ED);
+  }
+  &:nth-child(3) {
+    @include workingBackground(#65BFDC);
+  }
+
+  padding: 30px;
+  color: $white;
+
+  i {
+    font-weight: 900;
+    font-size: 90px;
+  }
+}
+.homeWorkingDescription {
+  margin-top: 45px;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 42px;
+}
+.homeWorkingsDecorational {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background: $main-gradiant;
+  top: 50%; 
+  bottom: 0;
+  left: 0; 
+  right: 0;
+  transform: translateY(-50%);
+  z-index: -1;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 50px;
+    background: $main-gradiant;
+    filter: blur(20px);
+  }
+}
+.navFriesMenu {
+  display: none;
+  width: 40px;
+  cursor: pointer;
+}
+@media screen and (max-width: 1600px) {
+  .homeWorkingsMain {
+    flex-flow: column;
+    gap: 50px;
+  }
+  .homeWorkingsDecorational {
+    transform: rotate(90deg);
+    top: 48%;
+  }
+  .challengeInfoWithoutRequirements {
+    flex-flow: column;
+    gap: 50px;
+  }
+  .challengeInfo {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+  }
+  .challengeImage {
+    width: 100%;
+  }
+  .challengeSubmit:not(.profileCardInfoSocial) {
+    margin-top: 75px;
+  }
+  .requirements {
+    text-align: center;
+
+    ul {
+      padding: 0px;
+      li {
+        list-style: none;
+      }
+    }
+  }
+  .challengeInformation {
+    padding-left: 0px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .commentCardChallengeSeeMoreTextAlign p {
+    display: none;
+  }
+  .profileMainCard {
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+  }
+  .profileMainCardInformation {
+    align-items: center;
+  }
+  .profileCardInfoSocials {
+    justify-content: space-around;
+  }
+  .profileCardInfoHeaderPoints {
+    flex-flow: column;
+
+    p {
+      margin: 15px 0px 5px 0px;
+      span {
+        display: none;
+      }
+    }
+  }
+  .profileCardInfoBio {
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .commentCardChallengeThumbnail {
+    width: 150px;
+  }
+  .commentCardChallengeInfoHeader {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 900px) {
+    main {
+      margin: 0px;
+    }
+    nav {
+      left: -350px;
+      transition: left 0.5s;
+    }
+    .profileAlign:not(.settingsProfileAlign) {
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navFriesMenu {
+      display: block;
+    }
+    .navigationOpen {
+      left: 0;
+      box-shadow: 0 0 0 1000px rgb(0 0 0 / 60%);
+      box-shadow: 0 0 0 100vmax rgb(0 0 0 / 60%);
+    }
+    .settingsAll {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+    }
+    .setting {
+      width: 100%;
+    }
+}
+@media screen and (max-width: 600px) {
+  .commentCardEditBodyAlign button {
+    width: 175px;
+
+    p {
+      font-size: 20px;
+    }
+  }
+  .commentCardEditBodyAlign {
+    margin-left: 0px;
+  }
+  .solutionCardDate {
+    text-align: left;
+  }
+  .specificSolutionAccountDetails {
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  .commentModification {
+    margin-top: 25px;
+  }
+  .commentCardBody {
+    margin-left: 0px;
+    text-align: left;
+  }
+  .homeWelcomeDescription {
+    font-size: 17px;
+    line-height: 30px;
+  }
+  .leaderboardSlot {
+    padding: 0px 42.5px 0px 25px;
+  }
+  .leaderboardSlotInfo {
+    gap: 40px;
+  }
+  .leaderboardSlotProfileHeader {
+    font-size: 20px;
+  }
+  .settingsMain {
+    position: absolute;
+    padding: 50px 25px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .commentCardChallengeSeeMoreTextAlign p {
+    display: block;
+  }
+  .commentCardChallengeSeeMoreAlign {
+    align-self: initial;
+    width: max-content;
+    margin-top: 25px;
+  }
+  .commentCardChallenge {
+    flex-flow: column;
+  }
+}
+@media screen and (max-width: 500px) {
+  .commentCardEditBodyAlign button {
+    width: 75px;
+
+    p span {
+      display: none;
+    }
+  }
+  .commentCardEditSubmitAlign {
+    gap: 25px;
+  }
+  .profileChallengeButtons {
+    gap: 50px;
+  }
+  .profileChallengeInProgress a button {
+    font-size: 20px;
+  }
+  .profileMainCardAvatar {
+    width: 250px;
+    height: 250px;
+  }
+  .profileMainAlign {
+    margin: 0px -52px;
+    margin-top: 35px;
+  }
+  .profileChallengeButtons {
+    padding: 0px 35px;
+  }
+  .challengeImage {
+    height: 350px;
+  }
+  .challengeInfoWithoutRequirements {
+    gap: 25px;
+  }
+  .challengeSubmit:not(.profileCardInfoSocial) {
+    width: 250px;
+  }
+  .requirements h2 {
+    font-size: 42px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .specificSolutionAccountDetails {
+    flex-flow: column;
+  }
+  .specificSolutionModificationsAlign {
+    justify-content: center;
+  }
+  .specificSolutionDiscussion {
+    text-align: center;
+  }
+  .specificSolutionDiscussionForm button:not(.commentCardEditBodyAlign button) {
+    justify-self: center;
+    width: 220px;
+  }
+  .specificSolutionDiscussion h1 {
+    font-size: 45px;
+  }
+  .solutionCardProfileName {
+    font-size: 15px;
+  }
+  .specificSolutionButtons {
+    gap: 40px;
+  }
+  nav {
+    width: 275px;
+  }
+  .profileMainCard {
+    padding: 25px;
+  }
+  .profileChallengeButtons {
+    grid-template-columns: 1fr;
+  }
+  .profileChallengeCompleted {
+    height: 75px;
+  }
+  .profileMainAlign {
+    margin: 0px -25px;
+    margin-top: 35px;
+  }
+  .logoAlign2 {
+    gap: 25px;
+  }
+  .navigationElement {
+    padding-left: 25px;
+  }
+  .homeWelcome h1 {
+    font-size: 35px;
+  }
+  main {
+    padding: 52px 25px;
+  }
+  .homeWorkingAlign h2 {
+    font-size: 35px;
+  }
+  .homeWorking {
+    width: 275px;
+    height: 275px;
+  }
+  .homeWorkingDescription {
+    font-size: 25px;
+    line-height: 30px;
+  }
+  .homeWorkingsDecorational {
+    top: 47%;
+    width: 100%;
+  }
+  .homeWorkingsMain {
+    gap: 25px;
+  }
+  .homeWorkingAlign {
+    margin-top: 100px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .commentCardChallengeInfo {
+    flex-flow: column;
+    align-items: center;
+  }
+  .commentCardChallengeInfoInfo {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+  .commentCardChallengeSeeMoreAlign {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .commentCard {
+    padding: 25px;
+  }
+  .solutionCardPersonalInfoName {
+    margin-left: 10px;
+  }
+  .solutionCardPersonalInfoImage {
+    width: 50px;
+    height: 50px;
+  }
+  .settingsProfileRing {
+    width: 225px;
+    height: 225px;
+  }
+  .solutionCardPersonalInfoImage img {
+    width: 45px;
+    height: 45px;
+  }
+  .updateSettingsButton {
+    width: 250px;
+  }
+  .settingsProfileRing label img {
+    width: 200px;
+    height: 200px;
+  }
+  .challengesHeaderAlign h1 {
+    font-size: 50px;
+  }
+  .resourcesMain h1 {
+    font-size: 45px;
+  }
+  .leaderboard {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-radius: 0px;
+  }
+  .leaderboardSlot {
+    padding: 0px 32.5px 0px 15px;
+  }
+  .leaderboardFilterAndHeader h1 {
+    font-size: 35px;
+  }
+  .leaderboardSlotInfo {
+    gap: 25px;
+  }
+  .leaderboardSlotProfileInfo {
+    gap: 15px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .solutionCardProfileName {
+    font-size: 15px;
+  }
+  .solutionCardHeader {
+    font-size: 25px;
+  }
+  .solutionsMain h1 {
+    font-size: 45px !important;
+  }
+  .solutionCardImageEffect {
+    height: 200px;
+  }
+  .resourceCardInformationSkill {
+    width: 50px;
+    font-size: 13px;
+  }
+  .resourceCardInformation {
+    padding: 20px;
+  }
+  .requirements {
+
+    h2 {
+      font-size: 35px;
+    }
+
+    ul li {
+      font-size: 20px;
+    }
+  }
+  .challengeInfo p {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 325px) {
+  .homeWelcomeDescription {
+    font-size: 15px;
+  }
+  nav {
+    width: 250px;
+  }
+  .navigationElement p {
+    margin-left: 20px;
+  }
+  .challengeCardInfoHeader {
+    font-size: 25px;
+  }
+  .challengeCardInfoDescription {
+    font-size: 13px;
+  }
+  .challengeCardImageAlign img {
+    height: 200px;
+  }
+}
