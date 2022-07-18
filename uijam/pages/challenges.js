@@ -1,9 +1,9 @@
 import React from 'react'
-import axios from 'axios'
 import SideNav from "../components/SideNav"
 import Challenges from "../components/Challenges"
+import axios from 'axios'
 
-export default function Home({challengesData}) {
+export default function Home(challengesData) {
   const [codeCookie, changeCodeCookie] = React.useState()
   const [profileModuleState, profileModuleShow] = React.useState(false)
   const [dropdownState, changeDropdownState] = React.useState(false)
@@ -20,7 +20,7 @@ export default function Home({challengesData}) {
     profileModuleShow(true)
   }, [])    
   
-  
+  console.log(challengesData.challengesData)
   return (
     <>
       { profileModuleState &&
@@ -32,7 +32,7 @@ export default function Home({challengesData}) {
       }
       <Challenges 
         codeCookie={codeCookie}
-        challengesData={challengesData}
+        challengesData={challengesData.challengesData}
         profileModuleState={profileModuleState}
         dropdownState={dropdownState}
         changeDropdownStateFunction={changeDropdownStateFunction}
@@ -41,13 +41,11 @@ export default function Home({challengesData}) {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch('http://localhost:5000/challenges/all')
-  const challengesData = await res.json()
+Home.getInitialProps = async () => {
+  const res = await axios.get("http://localhost:5000/challenges/all")
+  const challengesData = await res.data
 
-  return {
-      props: {
-          challengesData,
-      },
-  }
-}
+  return { 
+    challengesData: challengesData
+  };
+};

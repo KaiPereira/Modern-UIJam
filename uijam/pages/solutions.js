@@ -1,10 +1,9 @@
-import axios from "axios"
 import SideNav from "../components/SideNav"
 import React from "react"
 import Solutions from "../components/Solutions"
+import axios from "axios"
 
-
-export default function Solution({ solutionsData }) {
+export default function Solution(solutionsData) {
     const [codeCookie, changeCodeCookie] = React.useState()
     const [profileModuleState, profileModuleShow] = React.useState(false)
     const [dropdownState, changeDropdownState] = React.useState(false)
@@ -32,7 +31,7 @@ export default function Solution({ solutionsData }) {
             }
             <Solutions 
                 codeCookie={codeCookie}
-                solutionsData={solutionsData}
+                solutionsData={solutionsData.solutionsData}
                 profileModuleState={profileModuleState}
                 dropdownState={dropdownState}
                 changeDropdownStateFunction={changeDropdownStateFunction}
@@ -41,13 +40,22 @@ export default function Solution({ solutionsData }) {
     )
 }
 
-export async function getStaticProps() {
-    const res = await fetch('http://localhost:5000/solutions/all')
-    const solutionsData = await res.json()
+// export async function getStaticProps() {
+//     const res = await fetch('http://localhost:5000/solutions/all')
+//     const solutionsData = await res.json()
     
-    return {
-        props: {
-            solutionsData
-        }
-    }
-}
+//     return {
+//         props: {
+//             solutionsData
+//         }
+//     }
+// }
+
+Solution.getInitialProps = async () => {
+    const res = await axios.get("http://localhost:5000/solutions/all")
+    const solutionsData = await res.data
+  
+    return { 
+        solutionsData: solutionsData
+    };
+  };
