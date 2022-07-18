@@ -135,15 +135,15 @@ export default function Settings(props) {
                     <form className="settingsAll" onSubmit={changeSettingsPermanently}>
                         <div className="setting">
                             <p>Name</p>
-                            <input type="text" placeholder="Ex. John Doe" name="name" onChange={settingChange} value={settings.name} maxlength="25" required/>
+                            <input type="text" placeholder="Ex. John Doe" name="name" onChange={settingChange} value={settings.name} maxLength="25" required/>
                         </div>
                         <div className="setting">
                             <p>Location</p>
-                            <input type="text" placeholder="Ex. Paris, France" name="location" onChange={settingChange} value={settings.location} maxlength="30"/>
+                            <input type="text" placeholder="Ex. Paris, France" name="location" onChange={settingChange} value={settings.location} maxLength="30"/>
                         </div>
                         <div className="setting">
                             <p>Bio</p>
-                            <textarea name="bio" onChange={settingChange} value={settings.bio} maxlength="250"></textarea>
+                            <textarea name="bio" onChange={settingChange} value={settings.bio} maxLength="250"></textarea>
                         </div>
                         <p className="settingsAllSocialsHeader">Socials</p>
                         <div className="setting">

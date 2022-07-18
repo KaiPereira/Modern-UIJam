@@ -500,6 +500,7 @@ main {
   align-items: center;
   width: 100%;
   h1 {
+    margin-top: 25px;
     background: $main-gradiant;
     color: transparent;
     background-clip: text;
@@ -548,7 +549,7 @@ main {
     justify-content: center;
     align-items: center;
     width: 300px;
-    height: 300px;
+    aspect-ratio: 5/5;
     border: 2px solid;
     border-image: $main-gradiant 1;
     cursor: pointer;
@@ -2082,6 +2083,15 @@ main {
     }
 }
 @media screen and (max-width: 600px) {
+  .homeWorkingsDecorational {
+    display: none;
+  }
+  .submitChallenegButton {
+    width: 350px;
+  }
+  .submitChallenge h1 {
+    font-size: 45px;
+  }
   .commentCardEditBodyAlign button {
     width: 175px;
 
@@ -2240,10 +2250,6 @@ main {
     font-size: 25px;
     line-height: 30px;
   }
-  .homeWorkingsDecorational {
-    top: 47%;
-    width: 100%;
-  }
   .homeWorkingsMain {
     gap: 25px;
   }
@@ -2252,6 +2258,21 @@ main {
   }
 }
 @media screen and (max-width: 400px) {
+  .specificSolutionThumbnail {
+    height: 350px;
+  }
+  .submitChallengeFormThumbnailAlign label {
+    width: 250px;
+  }
+  .submitChallenegButton {
+    width: 275px;
+  }
+  .submitChallengeForm {
+    margin-top: 75px;
+  }
+  .submitChallenge h1 {
+    font-size: 35px;
+  }
   .commentCardChallengeInfo {
     flex-flow: column;
     align-items: center;
