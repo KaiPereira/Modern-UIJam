@@ -148,7 +148,7 @@ export default function SpecificSolution({ solutionData, solutionIndex }) {
             }
         })
 
-        window.location.href = "http://localhost:3000/solutions"
+        window.location.href = "http://uijam.herokuapp.com/solutions"
     }
     
     return (

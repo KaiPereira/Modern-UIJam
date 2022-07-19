@@ -89,7 +89,7 @@ export default function EditSolution({urlParams}) {
                 Authorization: `Bearer ${codeCookie}`
             }
         })
-        // window.location.href="http://localhost:3000/solutions"
+        // window.location.href="http://uijam.herokuapp.com/solutions"
     }
     
 

@@ -94,7 +94,7 @@ export default function ChallengeSubmit() {
                                     peopleWhoLiked: profileData.data[0].name
                                 }
                               };
-                              window.location.href="http://localhost:3000/solutions"
+                              window.location.href="http://uijam.herokuapp.com/solutions"
                               axios(config)
                         })
                 })
