@@ -63,19 +63,19 @@ export default function ChallengeSubmit() {
         var yyyy = today.getFullYear();
         today = mm + '/' + dd + '/' + yyyy;
 
-        axios.post("http://localhost:5000/authentication/parse-jwt", {
+        axios.post("http://uijam.herokuapp.com/authentication/parse-jwt", {
             jwt: codeCookie
         })
             .then(jwtPayload => {
-                axios.post("http://localhost:5000/profiles/profile", {
+                axios.post("http://uijam.herokuapp.com/profiles/profile", {
                     githubName: jwtPayload.data.username
                 })
                 .then(profileData => {
-                    axios.get("http://localhost:5000/challenges/all")
+                    axios.get("http://uijam.herokuapp.com/challenges/all")
                         .then(challengeData => {
                             var config = {
                                 method: 'post',
-                                url: 'http://localhost:5000/solutions/new',
+                                url: 'http://uijam.herokuapp.com/solutions/new',
                                 headers: { 
                                   'Authorization': `Bearer ${codeCookie}`, 
                                   'Content-Type': 'application/json'

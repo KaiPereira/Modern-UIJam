@@ -8,7 +8,7 @@ export default function Leaderboard(props) {
 
     React.useEffect(() => {
        // Get all profiles
-        axios.get("http://localhost:5000/profiles/all")
+        axios.get("http://uijam.herokuapp.com/profiles/all")
             .then(allProfiles => {
                 // Organize the profiles in order of points
                 const profilesOrganizedByPoints = allProfiles.data.sort(({points: a}, {points: b}) => b - a)

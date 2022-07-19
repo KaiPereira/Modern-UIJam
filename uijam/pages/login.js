@@ -8,11 +8,11 @@ export default function LoginRedirect({ profileData }) {
             const urlParams = new URLSearchParams(queryString);
             const page_type = urlParams.get('code')
         
-            axios.post("http://localhost:5000/authentication/authenticate", {code: page_type})
+            axios.post("http://uijam.herokuapp.com/authentication/authenticate", {code: page_type})
                 .then(data => {
                     document.cookie = `code=${data.data.jwtToken}`
 
-                    axios.post("http://localhost:5000/authentication/join", {githubData: data.data.extraData})
+                    axios.post("http://uijam.herokuapp.com/authentication/join", {githubData: data.data.extraData})
                         .then(data => console.log(data.data))
                 })
 

@@ -41,7 +41,7 @@ export default function Resources({ resourceData }) {
 }
 
 Resources.getInitialProps = async (context) => {
-    const res = await axios.get("http://localhost:5000/resources/all")
+    const res = await axios.get("http://uijam.herokuapp.com/resources/all")
     const resourceData = res.data
 
     return {

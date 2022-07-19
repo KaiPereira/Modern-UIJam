@@ -25,7 +25,7 @@ export default function EditSolution({urlParams}) {
             var match = document.cookie.match(new RegExp('(^| )' + "code" + '=([^;]+)'));
             changeCodeCookie(match[2])
         }
-        axios.get("http://localhost:5000/solutions/all")
+        axios.get("http://uijam.herokuapp.com/solutions/all")
             .then(solutions => {
                 changeSolutionData(solutions.data[urlParams.solutionIndex])
                 changeFormElements(prevState => {
@@ -78,7 +78,7 @@ export default function EditSolution({urlParams}) {
     }
 
     function updateSolution(e) {
-        axios.patch("http://localhost:5000/solutions/update", {
+        axios.patch("http://uijam.herokuapp.com/solutions/update", {
             id: solutionData._id,
             site: formElements.site,
             respository: formElements.repo,

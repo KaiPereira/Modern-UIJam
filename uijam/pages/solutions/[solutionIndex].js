@@ -29,7 +29,7 @@ export default function SpecificSolution({ solutionData, solutionIndex }) {
         if (document.cookie.match(new RegExp('(^| )' + "code" + '=([^;]+)'))) {
             var match = document.cookie.match(new RegExp('(^| )' + "code" + '=([^;]+)'));
             changeCodeCookie(match[2])
-            axios.post("http://localhost:5000/authentication/parse-jwt", {
+            axios.post("http://uijam.herokuapp.com/authentication/parse-jwt", {
                 jwt: match[2]
             })
             .then(data => {
@@ -37,7 +37,7 @@ export default function SpecificSolution({ solutionData, solutionIndex }) {
                 changeJwtPayload(data.data.username)
             })
         }
-        axios.post("http://localhost:5000/profiles/profile", {
+        axios.post("http://uijam.herokuapp.com/profiles/profile", {
             githubName: solutionData.authorGithub
         })
         .then(profile => changeProfileData(profile.data[0]))
@@ -51,12 +51,12 @@ export default function SpecificSolution({ solutionData, solutionIndex }) {
             setDisabled(true)
 
             // Grab the username from your jwt and use it to check if you are in the peopleWhoLiked
-            await axios.post("http://localhost:5000/authentication/parse-jwt", {
+            await axios.post("http://uijam.herokuapp.com/authentication/parse-jwt", {
                 jwt: codeCookie
             })
             .then(async data => {
                 // Update the likes with the updateLike route
-                await axios.patch("http://localhost:5000/solutions/updateLike", {
+                await axios.patch("http://uijam.herokuapp.com/solutions/updateLike", {
                     id: solutionData._id
                 }, {
                     headers: {
@@ -103,16 +103,16 @@ export default function SpecificSolution({ solutionData, solutionIndex }) {
 
     function addComment(e) {
         if (codeCookie) {
-            axios.post("http://localhost:5000/authentication/parse-jwt", {
+            axios.post("http://uijam.herokuapp.com/authentication/parse-jwt", {
                 jwt: codeCookie
             })
             .then(jwtPayload => {
-                axios.post("http://localhost:5000/profiles/profile", {
+                axios.post("http://uijam.herokuapp.com/profiles/profile", {
                     githubName: jwtPayload.data.username
                 })
                 .then(profile => {
 
-                    axios.patch("http://localhost:5000/solutions/addComment", {
+                    axios.patch("http://uijam.herokuapp.com/solutions/addComment", {
                         id: solutionData._id,
                         commentBody: commentBody
                     }, {
@@ -140,7 +140,7 @@ export default function SpecificSolution({ solutionData, solutionIndex }) {
     }
     
     function deleteSolution() {
-        axios.patch("http://localhost:5000/solutions/delete", {
+        axios.patch("http://uijam.herokuapp.com/solutions/delete", {
             id: solutionData._id
         }, {
             headers: {
@@ -247,7 +247,7 @@ export default function SpecificSolution({ solutionData, solutionIndex }) {
 }
 
 SpecificSolution.getInitialProps = async (context) => {
-    const res = await axios.get("http://localhost:5000/solutions/all")
+    const res = await axios.get("http://uijam.herokuapp.com/solutions/all")
     const solutionData = await res.data[parseInt(context.query.solutionIndex)]
 
     return { 
