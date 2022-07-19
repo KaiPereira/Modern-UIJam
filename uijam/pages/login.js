@@ -8,16 +8,16 @@ export default function LoginRedirect({ profileData }) {
             const urlParams = new URLSearchParams(queryString);
             const page_type = urlParams.get('code')
         
-            axios.post("http://uijam.herokuapp.com/authentication/authenticate", {code: page_type})
+            axios.post("https://uijam.herokuapp.com/authentication/authenticate", {code: page_type})
                 .then(data => {
                     document.cookie = `code=${data.data.jwtToken}`
 
-                    axios.post("http://uijam.herokuapp.com/authentication/join", {githubData: data.data.extraData})
+                    axios.post("https://uijam.herokuapp.com/authentication/join", {githubData: data.data.extraData})
                         .then(data => console.log(data.data))
                 })
 
             window.setTimeout(() => {
-                window.location.href="http://uijam.herokuapp.com/"
+                window.location.href="https://uijam.herokuapp.com/"
             }, 1000)
         }
     }, [])

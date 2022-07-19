@@ -42,7 +42,7 @@ export default function Home(challengesData) {
 }
 
 Home.getInitialProps = async () => {
-  const res = await axios.get("http://uijam.herokuapp.com/challenges/all")
+  const res = await axios.get("https://uijam.herokuapp.com/challenges/all")
   const challengesData = await res.data
 
   return { 

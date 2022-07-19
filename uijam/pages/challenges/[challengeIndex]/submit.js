@@ -63,19 +63,19 @@ export default function ChallengeSubmit() {
         var yyyy = today.getFullYear();
         today = mm + '/' + dd + '/' + yyyy;
 
-        axios.post("http://uijam.herokuapp.com/authentication/parse-jwt", {
+        axios.post("https://uijam.herokuapp.com/authentication/parse-jwt", {
             jwt: codeCookie
         })
             .then(jwtPayload => {
-                axios.post("http://uijam.herokuapp.com/profiles/profile", {
+                axios.post("https://uijam.herokuapp.com/profiles/profile", {
                     githubName: jwtPayload.data.username
                 })
                 .then(profileData => {
-                    axios.get("http://uijam.herokuapp.com/challenges/all")
+                    axios.get("https://uijam.herokuapp.com/challenges/all")
                         .then(challengeData => {
                             var config = {
                                 method: 'post',
-                                url: 'http://uijam.herokuapp.com/solutions/new',
+                                url: 'https://uijam.herokuapp.com/solutions/new',
                                 headers: { 
                                   'Authorization': `Bearer ${codeCookie}`, 
                                   'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ export default function ChallengeSubmit() {
                                     peopleWhoLiked: profileData.data[0].name
                                 }
                               };
-                              window.location.href="http://uijam.herokuapp.com/solutions"
+                              window.location.href="https://uijam.herokuapp.com/solutions"
                               axios(config)
                         })
                 })

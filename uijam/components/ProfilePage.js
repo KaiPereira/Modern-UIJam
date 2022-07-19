@@ -13,7 +13,7 @@ export default function Profile(props) {
     
     React.useEffect(() => {
         // Getting the url profile and putting it in profileData
-        axios.post("http://uijam.herokuapp.com/profiles/profile", {
+        axios.post("https://uijam.herokuapp.com/profiles/profile", {
             githubName: props.profileName
         })
         .then(profileData => {
@@ -37,7 +37,7 @@ export default function Profile(props) {
             // Get url second level domain and render the socials
         })
 
-        axios.get("http://uijam.herokuapp.com/solutions/all")
+        axios.get("https://uijam.herokuapp.com/solutions/all")
             .then(allSolutions => {
                 // Get all your solutions and render them as cards
                 changeProfileSolutions(allSolutions.data.map((solution, index) => {
@@ -64,7 +64,7 @@ export default function Profile(props) {
 
                 // Gets all your comments and renders them as commentCards
                 allSolutions.data.map((solution, index) => {
-                    axios.get("http://uijam.herokuapp.com/challenges/specific", {
+                    axios.get("https://uijam.herokuapp.com/challenges/specific", {
                         title: "Landing Page"
                     })
                     .then(challenge => {

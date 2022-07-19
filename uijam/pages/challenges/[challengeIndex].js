@@ -28,7 +28,7 @@ function ChallengePage({ router }) {
     const challengeIndex = parseInt(router.query.challengeIndex)
 
     React.useEffect(() => {
-        axios.get("http://uijam.herokuapp.com/challenges/all")
+        axios.get("https://uijam.herokuapp.com/challenges/all")
             .then(data => changeChallengeData(data.data[challengeIndex]))
     }, [challengeIndex])
 

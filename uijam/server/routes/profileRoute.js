@@ -48,7 +48,7 @@ router.patch("/update", methods.ensureToken, async (req, res) => {
             resource_type: "image",
             folder: "UIJam content"
         }, (err, result) => {
-            axios.patch("http://uijam.herokuapp.com/profiles/update2", {
+            axios.patch("https://uijam.herokuapp.com/profiles/update2", {
                 avatar: result ? result.secure_url : req.body.avatar,
                 name: req.body.name,
                 location: req.body.location,

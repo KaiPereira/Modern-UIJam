@@ -28,7 +28,7 @@ export default function Settings(props) {
     }
 
     function changeSettingsPermanently() {
-        axios.patch("http://uijam.herokuapp.com/profiles/update", {
+        axios.patch("https://uijam.herokuapp.com/profiles/update", {
             avatar: settings.avatar,
             name: settings.name,
             location: settings.location,
@@ -50,11 +50,11 @@ export default function Settings(props) {
     }
 
     React.useEffect(() => {
-        axios.post("http://uijam.herokuapp.com/authentication/parse-jwt", {
+        axios.post("https://uijam.herokuapp.com/authentication/parse-jwt", {
             jwt: props.codeCookie
         })
         .then(jwtPayload => {
-            axios.post("http://uijam.herokuapp.com/profiles/profile", {
+            axios.post("https://uijam.herokuapp.com/profiles/profile", {
                 githubName: jwtPayload.data.username
             })
             .then(profile => {

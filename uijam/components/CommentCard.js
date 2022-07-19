@@ -12,21 +12,21 @@ export default function CommentCard(props) {
     
     
     if (props.codeCookie) {
-        axios.post("http://uijam.herokuapp.com/authentication/parse-jwt", {
+        axios.post("https://uijam.herokuapp.com/authentication/parse-jwt", {
             jwt: props.codeCookie
         })
         .then(data => changeJwtGithubName(data.data.username))
     }
     
     React.useEffect(() => {
-        axios.post("http://uijam.herokuapp.com/profiles/profile", {
+        axios.post("https://uijam.herokuapp.com/profiles/profile", {
             githubName: props.authorGithub
         })
         .then(profile => changeAuthorDetails(profile.data[0]))
     }, [])
 
     function deleteComment() {
-        axios.patch("http://uijam.herokuapp.com/solutions/deleteComment", {
+        axios.patch("https://uijam.herokuapp.com/solutions/deleteComment", {
             commentId: props.id,
             id: props.solutionId
         }, {
@@ -42,7 +42,7 @@ export default function CommentCard(props) {
     }
 
     function submitEdits(e) {
-        axios.patch("http://uijam.herokuapp.com/solutions/updateComment", {
+        axios.patch("https://uijam.herokuapp.com/solutions/updateComment", {
             solutionId: props.solutionId,
             commentId: props.id,
             commentBody: editInput

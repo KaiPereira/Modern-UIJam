@@ -13,7 +13,7 @@ export default function SolutionCard(props) {
 
     React.useEffect(() => {
         if (props.codeCookie) {
-            axios.post("http://uijam.herokuapp.com/authentication/parse-jwt", {
+            axios.post("https://uijam.herokuapp.com/authentication/parse-jwt", {
                 jwt: props.codeCookie
             })
             .then(data => {
@@ -21,7 +21,7 @@ export default function SolutionCard(props) {
                 changeLikeFilled(props.peopleWhoLiked.includes(data.data.username))
             })
         }
-        axios.post("http://uijam.herokuapp.com/profiles/profile", {
+        axios.post("https://uijam.herokuapp.com/profiles/profile", {
             githubName: props.authorGithub
         })
         .then(profile => changeSolutionProfile(profile.data[0]))
@@ -34,12 +34,12 @@ export default function SolutionCard(props) {
             setDisabled(true)
 
             // Grab the username from your jwt and use it to check if you are in the peopleWhoLiked
-            await axios.post("http://uijam.herokuapp.com/authentication/parse-jwt", {
+            await axios.post("https://uijam.herokuapp.com/authentication/parse-jwt", {
                 jwt: props.codeCookie
             })
             .then(async data => {
                 // Update the likes with the updateLike route
-                await axios.patch("http://uijam.herokuapp.com/solutions/updateLike", {
+                await axios.patch("https://uijam.herokuapp.com/solutions/updateLike", {
                     id: props.id
                 }, {
                     headers: {

@@ -13,11 +13,11 @@ export default function ProfileModule(props) {
 
     React.useEffect(() => {
         if (props.codeCookie) {
-            axios.post("http://uijam.herokuapp.com/authentication/parse-jwt", {
+            axios.post("https://uijam.herokuapp.com/authentication/parse-jwt", {
                 jwt: props.codeCookie
             })
             .then(payloadData => {
-                axios.post("http://uijam.herokuapp.com/profiles/profile", {
+                axios.post("https://uijam.herokuapp.com/profiles/profile", {
                     githubName: payloadData.data.username
                 })
                 .then(profile => {
