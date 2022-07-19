@@ -2,16 +2,14 @@
   "name": "uijam",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
   "scripts": {
-    "dev": "node server2/index.js",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "express": "^4.18.1",
     "next": "^12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
