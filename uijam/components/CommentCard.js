@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function CommentCard(props) {
     const [jwtGithubName, changeJwtGithubName] = React.useState()
@@ -71,7 +72,7 @@ export default function CommentCard(props) {
             { props.solutionThumbnail &&
             <div className="commentCardChallenge">
                 <div className="commentCardChallengeInfo">
-                    <img src={props.solutionThumbnail} className="commentCardChallengeThumbnail" />
+                    <Image width="225px" height="135px" src={props.solutionThumbnail} className="commentCardChallengeThumbnail" />
                     <div className="commentCardChallengeInfoInfo">
                         <p className="commentCardChallengeInfoHeader">{props.title}</p>
                         <div className="commentCardChallengeDifficulty" style={{color: props.difficulty == "easy" ? "#6CBF58" : props.difficulty == "normal" ? "#BFB558" : props.difficulty == "hard" ? "#BF9058" : "#BF5858", borderColor: props.difficulty == "easy" ? "#6CBF58" : props.difficulty == "normal" ? "#BFB558" : props.difficulty == "hard" ? "#BF9058" : "#BF5858"}}>{props.difficulty.toUpperCase()}</div>

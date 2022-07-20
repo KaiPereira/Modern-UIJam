@@ -3,6 +3,7 @@ import React from "react"
 import axios from "axios"
 import SolutionCard from "./subcomponents/SolutionCard"
 import CommentCard from "./CommentCard"
+import Image from "next/image"
 
 export default function Profile(props) {
     const [profileData, changeProfileData] = React.useState()
@@ -111,7 +112,7 @@ export default function Profile(props) {
                         <div className="profileMainCardAvatarAlign">
                             <div className="profileMainCardAvatar">
                                 <div className="profileMainCardAvatarOverflowControl">
-                                    <img src={profileData.avatar} alt="Profile Avatar"/>
+                                    <Image width="260px" height="260px" src={profileData.avatar} alt="Profile Avatar"/>
                                 </div>
                             </div>
                         </div>

@@ -40,17 +40,6 @@ export default function Solution(solutionsData) {
     )
 }
 
-// export async function getStaticProps() {
-//     const res = await fetch('https://uijam.herokuapp.com/solutions/all')
-//     const solutionsData = await res.json()
-    
-//     return {
-//         props: {
-//             solutionsData
-//         }
-//     }
-// }
-
 Solution.getInitialProps = async () => {
     const res = await axios.get("https://uijam.herokuapp.com/solutions/all")
     const solutionsData = await res.data

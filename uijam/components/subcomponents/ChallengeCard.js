@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from "next/image"
 
 export default function ChallengeCard(props) {
     let difficultyText = props.difficulty == "easy" ? "EASY" : props.difficulty == "normal" ? "NORMAL" : props.difficulty == "hard" ? "HARD" : "EXPERT"
@@ -9,7 +10,7 @@ export default function ChallengeCard(props) {
         <div className="challengeCard" style={difficultyBorderColor}>
             <div className="challengeCardImageAlign">
                 <Link href={`/challenges/${props.link}`}>
-                    <img src={props.challengeImage} alt="challenge card's thumbnail"/>
+                    <Image width="375px" height="252px" src={props.challengeImage} alt="challenge card's thumbnail" />
                 </Link>
             </div>
             <div className="challengeCardInfo">

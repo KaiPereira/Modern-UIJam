@@ -20,7 +20,6 @@ export default function Home(challengesData) {
     profileModuleShow(true)
   }, [])    
   
-  console.log(challengesData.challengesData)
   return (
     <>
       { profileModuleState &&

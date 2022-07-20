@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function ResourceCard(props) {
 
@@ -13,7 +14,7 @@ export default function ResourceCard(props) {
         <div className="resoureCard">
             <div className="resourceCardImageEffect">
                 <a href={props.link} target="_blank" rel="noreferrer">
-                    <img src={props.thumbnail} alt="resource card thumbnail" />
+                    <Image width="375px" height="260px" src={props.thumbnail} alt="resource card thumbnail" />
                 </a>
             </div>
             <div className="resourceCardInformation">

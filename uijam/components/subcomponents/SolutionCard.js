@@ -2,6 +2,7 @@ import Link from 'next/link'
 import axios from "axios"
 import React from "react"
 import LoginRequiredModal from "./LoginRequiredModal"
+import Image from "next/image"
 
 export default function SolutionCard(props) {
     const [disabled, setDisabled] = React.useState(false);
@@ -81,7 +82,7 @@ export default function SolutionCard(props) {
                 <div className="solutionCard">
                     <Link href={`/solutions/${props.index.toString()}`}>
                         <div className="solutionCardImageEffect">
-                            <img src={props.image} alt="solution card thumbnail" />
+                            <Image width="375" height="250" src={props.image} alt="solution card thumbnail" />
                         </div>  
                     </Link> 
                     <div className="solutionCardInfo">
@@ -89,7 +90,7 @@ export default function SolutionCard(props) {
                         <div className="solutionCardPersonalInfo">
                             <div className="solutionCardPersonalInfoImage">
                                 <Link href={`/profile/${props.authorGithub}`}>
-                                    <img src={solutionProfile.avatar} alt="solution person's avatar" />
+                                    <Image width="55px" height="55px" style={{borderRadius: "1000px"}} src={solutionProfile.avatar} alt="solution person's avatar" />
                                 </Link>
                             </div>
                             <div className="solutionCardPersonalInfoName">

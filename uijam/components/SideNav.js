@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from "next/image"
 
 export default function SideNav(props) {
     return (
@@ -6,7 +7,7 @@ export default function SideNav(props) {
             <div className="logoAlign">
                 <Link href="/">
                     <div className="logoAlign2">
-                        <img src="/logo.png" />
+                        <Image width="100px" height="65px" src="/logo.png" />
                         <p>UIJam</p>
                     </div>
                 </Link>
