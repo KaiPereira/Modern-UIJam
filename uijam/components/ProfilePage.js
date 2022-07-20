@@ -112,7 +112,7 @@ export default function Profile(props) {
                         <div className="profileMainCardAvatarAlign">
                             <div className="profileMainCardAvatar">
                                 <div className="profileMainCardAvatarOverflowControl">
-                                    <Image width="260px" height="260px" src={profileData.avatar} alt="Profile Avatar"/>
+                                    <Image width="320px" height="320px" src={profileData.avatar} alt="Profile Avatar"/>
                                 </div>
                             </div>
                         </div>
