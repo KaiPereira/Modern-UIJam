@@ -17,7 +17,7 @@ export default function LoginRedirect({ profileData }) {
                 })
 
             window.setTimeout(() => {
-                window.location.href="https://modern-uij-am.vercel.app/"
+                window.location.href="https://uijam.vercel.app/"
             }, 1000)
         }
     }, [])

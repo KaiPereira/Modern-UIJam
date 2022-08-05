@@ -2065,13 +2065,22 @@ main {
       justify-content: space-between;
       align-items: center;
     }
+    .loginButtonAlignMain {
+      justify-content: space-between;
+      align-items: center;
+    }
     .navFriesMenu {
       display: block;
+      margin-right: 25px;
     }
     .navigationOpen {
       left: 0;
       box-shadow: 0 0 0 1000px rgb(0 0 0 / 60%);
       box-shadow: 0 0 0 100vmax rgb(0 0 0 / 60%);
+      z-index: 1000;
+    }
+    .navigationClosed {
+      z-index: 1000;
     }
     .settingsAll {
       display: flex;
