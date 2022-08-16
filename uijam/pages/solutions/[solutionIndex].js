@@ -148,7 +148,7 @@ export default function SpecificSolution({ solutionData, solutionIndex }) {
             }
         })
 
-        window.location.href = "https://uijam.herokuapp.com/solutions"
+        window.location.href = "https://uijam.vercel.app/solutions"
     }
     
     return (

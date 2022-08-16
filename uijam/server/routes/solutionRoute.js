@@ -230,17 +230,15 @@ router.patch("/update", methods.ensureToken, async (req, res) => {
         .upload(req.body.preview, {
             resource_type: "image",
             folder: "UIJam content"
-        }, (err, result) => {
-            axios.patch("https://uijam.herokuapp.com/solutions/update2", {
-                id: req.body.id,
-                site: req.body.site,
-                repository: req.body.respository,
-                thumbnail: result.secure_url
-            }, {
-                headers: {
-                    Authorization: req.headers["authorization"]
+        }, async (err, result) => {
+            await SolutionModel.updateOne(
+                {_id: req.body.id, authorGithub: methods.parseJwt(req.headers["authorization"].replace("Bearer", "")).username},
+                {
+                    site: req.body.site,
+                    repository: req.body.respository,
+                    thumbnail: result.secure_url
                 }
-            })
+            )
 
             // Destroys the old image from storage
             cloudinary.uploader
