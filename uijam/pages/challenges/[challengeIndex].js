@@ -72,7 +72,7 @@ function ChallengePage({ router }) {
                                 <div className="challengeInfo">
                                     <div className="challengeDifficulty" style={{color: challengeData.difficulty == "easy" ? "#6CBF58" : challengeData.difficulty == "normal" ? "#BFB558" : challengeData.difficulty == "hard" ? "#BF9058" : "#BF5858", borderColor: challengeData.difficulty == "easy" ? "#6CBF58" : challengeData.difficulty == "normal" ? "#BFB558" : challengeData.difficulty == "hard" ? "#BF9058" : "#BF5858"}}>{challengeData.difficulty.toUpperCase()}</div>
                                     <h1>{challengeData.header}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac efficitur In ac efficitur felis, non ullamcorper est. Curabitur lacinia urna ac sapien posuere </p>
+                                    <p>{challengeData.description}</p>
                                     {
                                         codeCookie ?
                                         <Link href={{
